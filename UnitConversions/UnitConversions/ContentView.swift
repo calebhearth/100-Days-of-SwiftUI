@@ -144,9 +144,10 @@ struct ContentView: View {
             Text(convertedMeasurement.formatted())
           }
           .font(.title2)
+          .foregroundStyle(.white)
           .frame(maxWidth: .infinity)
           .padding()
-          .background(LinearGradient(gradient: Gradient(colors: [.purple, .red]), startPoint: .leading, endPoint: .trailing))
+          .background(LinearGradient(gradient: Gradient(colors: [.blue,  .pink, .yellow]), startPoint: .leading, endPoint: .trailing))
 
         }
         Form {
