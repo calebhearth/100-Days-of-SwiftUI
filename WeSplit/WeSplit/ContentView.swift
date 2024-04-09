@@ -5,7 +5,7 @@ struct ContentView: View {
   @State private var numberOfPeople = 2
   @State private var tipPercentage: Decimal = 0.20
   @FocusState private var amountIsFocused: Bool
-  let tipPercentages: [Decimal] = [0.10, 0.15, 0.20, 0.25]
+  let tipPercentages: [Decimal] = [0.10, 0.15, 0.20, 0.25, 0]
   var tipAmount: Decimal {
     checkAmount * tipPercentage
   }
@@ -49,6 +49,7 @@ struct ContentView: View {
               Text("Total tip: ")
               Text(tipAmount, format: .currency(code: currencyCode))
             }
+            .foregroundStyle(tipPercentage == 0 ? .red : .primary)
             GridRow {
               Text("Total with Tip: ")
               Text(checkTotal, format: .currency(code: currencyCode))
@@ -60,9 +61,6 @@ struct ContentView: View {
           }
           .frame(maxWidth: .infinity)
         }
-      }
-      .onTapGesture {
-        amountIsFocused = false
       }
       .navigationTitle("WeSplit")
       .toolbar {
